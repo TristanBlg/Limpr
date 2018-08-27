@@ -7,8 +7,8 @@ import Router from './router/Router'
 import './main.css'
 
 const store = createStore(
-	rootReducers,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  rootReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 ReactDOM.render(
