@@ -1,0 +1,30 @@
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+html{
+  font-size: calc(.625 * 1em);
+  -webkit-text-size-adjust: 100%;
+}
+body{
+  margin: 0;
+  font-family: 'Hind', sans-serif;
+  font-size: 1.6em;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f2f2f2;
+}
+a{
+  text-decoration: none;
+}
+a,
+button{
+  outline: none;
+  cursor: pointer;
+}
+.container{
+  width:768px;
+  margin: 0 auto;
+}
