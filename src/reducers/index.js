@@ -34,10 +34,20 @@ const nowPlaying = (state = {
   }
 }
 
+const posts = (state = [], action) => {
+  switch (action.type) {
+    case types.fetchPosts:
+      return action.posts
+    default:
+      return state;
+  }
+}
+
 const reducers = combineReducers({
   fullScreen,
   isPlaying,
   nowPlaying,
+  posts,
 })
 
 export default reducers

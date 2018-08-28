@@ -1,0 +1,58 @@
+{
+  "songs": [
+    {
+      "id": 0,
+      "author": "Denzel Curry",
+      "title": "CLOUT COBAIN | CLOUT CO13A1N",
+      "duration": "2:35"
+    },
+    {
+      "id": 1,
+      "author": "Denzel Curry",
+      "title": "SWITCH IT UP | ZWITCH 1T UP",
+      "duration": "2:55"
+    },
+    {
+      "id": 2,
+      "author": "AWOLNATION",
+      "title": "Sail",
+      "duration": "4:23"
+    }
+  ],
+  "posts": [
+    {
+      "id": 0,
+      "dateSend": "2018-08-21 22:55",
+      "authorId": 0,
+      "songsId": [
+        0
+      ]
+    },
+    {
+      "id": 1,
+      "dateSend": "2018-08-21 20:21",
+      "authorId": 0,
+      "songsId": [
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "dateSend": "2018-08-19 21:34",
+      "authorId": 1,
+      "songsId": [
+        2
+      ]
+    }
+  ],
+  "author": [
+    {
+      "id": 0,
+      "name": "Denzel Curry"
+    },
+    {
+      "id": 1,
+      "name": "AWOLNATION"
+    }
+  ]
+}

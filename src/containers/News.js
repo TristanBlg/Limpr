@@ -1,24 +1,55 @@
 import * as React from 'react'
+import {connect} from 'react-redux'
+import {fetchAllPosts} from '../actions'
 import Post from '../components/Post'
 
-function News(){
-  return (
-    <section>
-      <div className="container">
-        {posts.map((post, key) => {
-          return (
-            <Post key={key} {...post}/>
-          )
-        })}
-      </div>
-    </section>
-  )
+export class News extends React.Component{
+  constructor(){
+    super();
+  }
+
+  componentDidMount(){
+    this.props.fetchAllPosts()
+  }
+
+  render(){
+    const {posts} = this.props
+
+    return (
+      <section>
+        <div className="container">
+          {posts && posts.map((post, key) => {
+            return (
+              <Post key={key} {...post}/>
+            )
+          })}
+        </div>
+      </section>
+    )
+  }
 }
 
-export default News
+const mapStateToProps = (state) => {
+  return {
+    posts: state.props
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchAllPosts: () => {
+      dispatch(fetchAllPosts())
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(News)
+
 
 //TO DELETE
-const posts = [
+const postss = [
   {
     id: 0,
     dateSend: '2018-08-21 22:55',
