@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Nav from '../components/Nav'
 import Searchbar from '../components/SearchBar'
 
-const Header = () => {
+function Header(){
   return (
     <StyledHeader>
       <div className="container">

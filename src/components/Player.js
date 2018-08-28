@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 import ControlBar from './ControlBar'
 
-const Player = (props) => {
+function Player(props){
   const {fullScreen, nowPlaying} = props
 
   return (

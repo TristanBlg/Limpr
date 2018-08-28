@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 import {PlaySvg, AddSvg} from '../images/SvgSprite'
 import ProfilePic from './ProfilePic'
 
-const Post = (props) => {
+function Post(props){
   const {authorId, songsId, setNowPlaying} = props
   const dateSend = moment(props.dateSend).fromNow()
   const iconSize = 18
@@ -25,7 +25,6 @@ const Post = (props) => {
           <p className="date">{dateSend}</p>
         </div>
       </div>
-      {/*setNowPlaying(songs[songId].title)*/}
       {songsId.map((songId, key) => {
         return (
           <StyledSong key={key}>

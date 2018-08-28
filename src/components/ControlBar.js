@@ -4,7 +4,7 @@ import {toggleFullScreen, togglePlaying} from '../actions'
 import styled from 'styled-components'
 import {AddSvg, PlaySvg, PrevSvg, NextSvg, FullScreenSvg, PauseSvg} from '../images/SvgSprite'
 
-const ControlBar = (props) => {
+export function ControlBar(props){
   const {isPlaying, toggleFullScreen, togglePlaying} = props
   const iconSize = 24
 

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import ProfilePic from './ProfilePic'
 
-const Nav = () => {
+function Nav(){
   return (
     <StyledNav to="/profile">
       <ProfilePic/>

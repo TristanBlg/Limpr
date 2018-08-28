@@ -1,15 +1,7 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 
-type Props = {
-  isActive: boolean,
-  title: string,
-  items: Array<Object>
-};
-
-const List = (props: Props) => {
+function List(props){
   const {title, items} = props
 
   return (

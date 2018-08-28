@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Post from '../components/Post'
 
-const News = () => {
+function News(){
   return (
     <section>
       <div className="container">

@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import {LogoSvg} from '../images/SvgSprite'
 
-const Logo = () => {
+function Logo(){
   return (
     <React.Fragment>
       <StyledLogoSvg>

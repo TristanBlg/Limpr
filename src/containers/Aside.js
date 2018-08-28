@@ -6,7 +6,7 @@ import Logo from '../components/Logo'
 import List from '../components/List'
 import Player from '../components/Player'
 
-const Aside = (props) => {
+function Aside(props){
   const {fullScreen} = props
 
   return (

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const Profile = () => {
+function Profile(){
   return (
     <section>
       <div className="container">
