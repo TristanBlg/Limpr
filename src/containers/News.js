@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
-import {fetchAllPosts} from '../actions'
 import Post from '../components/Post'
 
 export class News extends React.Component{
@@ -8,9 +7,9 @@ export class News extends React.Component{
     super();
   }
 
-  componentDidMount(){
-    this.props.fetchAllPosts()
-  }
+  // componentDidMount(){
+  //   this.props.fetchAllPosts()
+  // }
 
   render(){
     const {posts} = this.props
@@ -36,9 +35,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllPosts: () => {
-      dispatch(fetchAllPosts())
-    }
+    // fetchAllPosts: () => {
+    //   dispatch(fetchAllPosts())
+    // }
   }
 }
 
