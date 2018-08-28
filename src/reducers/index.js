@@ -39,7 +39,7 @@ const posts = (state = [], action) => {
     case types.fetchPosts:
       return action.posts
     default:
-      return state;
+      return state
   }
 }
 
