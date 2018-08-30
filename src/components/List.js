@@ -8,7 +8,7 @@ function List(props){
     <StyledList>
       <h2 className="list__title">{title}</h2>
       <ul className="list__nav">
-        {items.map((el, key) => {
+        {items && items.map((el, key) => {
           return (
             <li key={key}>
               <a className="list__link">

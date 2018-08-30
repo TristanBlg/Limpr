@@ -1,13 +1,12 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
-
 import Logo from '../components/Logo'
 import List from '../components/List'
 import Player from '../components/Player'
 
 function Aside(props){
-  const {fullScreen} = props
+  const {fullScreen, user} = props
 
   return (
     <StyledAside fullScreen={fullScreen}>
@@ -15,8 +14,8 @@ function Aside(props){
       <Player/>
       {!fullScreen && (
         <React.Fragment>
-          <List title="Playlists" items={playlists} />
-          <List title="Suggestions" items={suggestions} />
+          <List title="Playlists" items={user.playlists} />
+          <List title="Suggestions" items={user.suggestions} />
         </React.Fragment>
       )}
     </StyledAside>
@@ -28,6 +27,7 @@ const StyledAside = styled.aside `
   transition: width .4s ease-in-out;
   height: 100%;
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   background: #fff;
@@ -37,6 +37,7 @@ const StyledAside = styled.aside `
 const mapStateToProps = (state) => {
   return {
     fullScreen: state.fullScreen,
+    user: state.user,
   }
 }
 
@@ -62,17 +63,17 @@ const playlists = [
 const suggestions = [
   {
     id: 1,
-    name: "Ambient chill",
-    author: "Ambient chill",
+    name: "MANTRA",
+    author: "Bring Me The Horizon",
   },
   {
     id: 2,
-    name: "Cloud rap",
-    author: "Cloud rap",
+    name: "Kim Deal",
+    author: "Johnny Mafia",
   },
   {
     id: 3,
-    name: "Fresh touch",
-    author: "Fresh touch",
+    name: "Weak When Ur Around",
+    author: "Blackbear",
   }
 ]

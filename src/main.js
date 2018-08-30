@@ -5,9 +5,9 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import ReduxThunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import rootReducer from './reducers'
-import {fetchAllPosts} from './actions'
 import Router from './router/Router'
 import './main.css'
+import {fetchAllPosts, fetchLogUser} from './actions'
 
 const store = createStore(
   rootReducer,
@@ -16,7 +16,8 @@ const store = createStore(
   )
 )
 
-store.dispatch(fetchAllPosts())
+store.dispatch(fetchAllPosts());
+store.dispatch(fetchLogUser());
 
 ReactDOM.render(
   <Provider store={store}>

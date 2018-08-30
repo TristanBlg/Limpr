@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import {AddSvg, PlaySvg, PrevSvg, NextSvg, FullScreenSvg, PauseSvg} from '../images/SvgSprite'
 
 export function ControlBar(props){
-  const {isPlaying, toggleFullScreen, togglePlaying} = props
+  const {nowPlaying, toggleFullScreen, togglePlaying} = props
   const iconSize = 24
 
   return (
@@ -18,7 +18,7 @@ export function ControlBar(props){
           <PrevSvg height={iconSize} width={iconSize}/>
         </StyledControlBtn>
         {<StyledControlBtn play onClick={togglePlaying}>
-          {isPlaying ? (
+          {nowPlaying ? (
             <PauseSvg height={iconSize} width={iconSize}/>
           ) : (
             <PlaySvg height={iconSize} width={iconSize}/>
@@ -37,7 +37,7 @@ export function ControlBar(props){
 
 const mapStateToProps = (state) => {
   return {
-    isPlaying: state.isPlaying,
+    nowPlaying: state.nowPlaying.play,
   }
 }
 const mapDispatchToProps = (dispatch) => {
