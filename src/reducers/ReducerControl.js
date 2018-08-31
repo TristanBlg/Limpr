@@ -12,20 +12,23 @@ export const fullScreen = (state = false, action) => {
 export const nowPlaying = (state = {
   title: "Title",
   author: "Author",
-  play: false
+  play: false,
+  runTime: "00:00:00"
 }, action) => {
   switch(action.type){
     case types.setNowPlaying:
       return {
         title: action.title,
         author: action.author,
-        play: state.play
+        play: true,
+        runTime: "00:00:00"
       }
     case types.togglePlaying:
       return {
         title: state.title,
         author: state.author,
-        play: !state.play
+        play: !state.play,
+        runTime: state.runTime
       }
     default:
       return state

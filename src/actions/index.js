@@ -9,11 +9,12 @@ export const toggleFullScreen = () => ({
 export const togglePlaying = () => ({
   type: types.togglePlaying,
 })
-export const setNowPlaying = (title, author, play) => ({
+export const setNowPlaying = (title, author, play, runTime) => ({
   type: types.setNowPlaying,
   title,
   author,
   play,
+  runTime
 })
 
 export const fetchPosts = (posts) => ({

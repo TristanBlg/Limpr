@@ -10,7 +10,7 @@ import ProfilePic from './ProfilePic'
 function Post(props){
   const {user, songs, setNowPlaying} = props
   const dateSend = moment(props.dateSend).fromNow()
-  const iconSize = 18
+  const iconSize = 16
 
   return (
     <StyledPost>
@@ -29,12 +29,12 @@ function Post(props){
         return (
           <StyledSong key={key}>
             <div className="song-left">
-              <div className="song__play" onClick={() => setNowPlaying(song.title, user.name)}>
+              <button className="song__play" onClick={() => setNowPlaying(song.title, user.name)}>
                 <PlaySvg height={iconSize} width={iconSize}/>
-              </div>
-              <div className="song__add">
+              </button>
+              <button className="song__add">
                 <AddSvg height={iconSize} width={iconSize}/>
-              </div>
+              </button>
               <div className="song__title">
                 {song.title}
               </div>
