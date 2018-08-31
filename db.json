@@ -1,0 +1,119 @@
+{
+  "songs": [
+    {
+      "id": 0,
+      "user": "Denzel Curry",
+      "title": "CLOUT COBAIN | CLOUT CO13A1N",
+      "duration": "2:35"
+    },
+    {
+      "id": 1,
+      "user": "Denzel Curry",
+      "title": "SWITCH IT UP | ZWITCH 1T UP",
+      "duration": "2:55"
+    },
+    {
+      "id": 2,
+      "user": "AWOLNATION",
+      "title": "Sail",
+      "duration": "4:23"
+    }
+  ],
+  "posts": [
+    {
+      "id": 0,
+      "dateSend": "2018-08-21 22:55",
+      "user": {
+        "id": 0,
+        "name": "Denzel Curry"
+      },
+      "songs": [
+        {
+          "id": 0,
+          "title": "CLOUT COBAIN | CLOUT CO13A1N",
+          "duration": "2:35"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "dateSend": "2018-08-21 20:21",
+      "user": {
+        "id": 0,
+        "name": "Denzel Curry"
+      },
+      "songs": [
+        {
+          "id": 1,
+          "title": "SWITCH IT UP | ZWITCH 1T UP",
+          "duration": "2:55"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "dateSend": "2018-08-19 21:34",
+      "user": {
+        "id": 1,
+        "name": "AWOLNATION"
+      },
+      "songs": [
+        {
+          "id": 2,
+          "title": "Sail",
+          "duration": "4:23"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "Denzel Curry"
+    },
+    {
+      "id": 1,
+      "name": "AWOLNATION"
+    },
+    {
+      "id": 2,
+      "name": "Tristan"
+    }
+  ],
+  "user": {
+    "id": 2,
+    "name": "Tristan",
+    "picture": "",
+    "playlists": [
+      {
+        "id": 1,
+        "name": "Ambient chill"
+      },
+      {
+        "id": 2,
+        "name": "Cloud rap"
+      },
+      {
+        "id": 3,
+        "name": "Fresh touch"
+      }
+    ],
+    "suggestions": [
+      {
+        "id": 1,
+        "name": "MANTRA",
+        "author": "Bring Me The Horizon"
+      },
+      {
+        "id": 2,
+        "name": "Kim Deal",
+        "author": "Johnny Mafia"
+      },
+      {
+        "id": 3,
+        "name": "Weak When Ur Around",
+        "author": "Blackbear"
+      }
+    ]
+  }
+}

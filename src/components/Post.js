@@ -1,16 +1,16 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
-import {setNowPlaying} from '../actions'
 import styled from 'styled-components'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
+import {setNowPlaying} from '../actions'
 import {PlaySvg, AddSvg} from '../images/SvgSprite'
 import ProfilePic from './ProfilePic'
 
 function Post(props){
-  const {authorId, songsId, setNowPlaying} = props
+  const {user, songs, setNowPlaying} = props
   const dateSend = moment(props.dateSend).fromNow()
-  const iconSize = 18
+  const iconSize = 16
 
   return (
     <StyledPost>
@@ -20,28 +20,28 @@ function Post(props){
         </Link>
         <div>
           <Link to="/profile">
-            <p className="author">{authors[authorId].name}</p>
+            <p className="author">{user.name}</p>
           </Link>
           <p className="date">{dateSend}</p>
         </div>
       </div>
-      {songsId.map((songId, key) => {
+      {songs.map((song, key) => {
         return (
           <StyledSong key={key}>
             <div className="song-left">
-              <div className="song__play" onClick={() => setNowPlaying(songs[songId].title, songs[songId].author)}>
+              <button className="song__play" onClick={() => setNowPlaying(song.title, user.name)}>
                 <PlaySvg height={iconSize} width={iconSize}/>
-              </div>
-              <div className="song__add">
+              </button>
+              <button className="song__add">
                 <AddSvg height={iconSize} width={iconSize}/>
-              </div>
+              </button>
               <div className="song__title">
-                {songs[songId].title}
+                {song.title}
               </div>
             </div>
             <div className="song-right">
               <div className="song__time">
-                {songs[songId].duration}
+                {song.duration}
               </div>
             </div>
           </StyledSong>
@@ -116,8 +116,8 @@ const StyledSong = styled.div `
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setNowPlaying: (title, author) => {
-      dispatch(setNowPlaying(title, author))
+    setNowPlaying: (title, user) => {
+      dispatch(setNowPlaying(title, user))
     }
   }
 }
@@ -126,35 +126,3 @@ export default connect(
   null,
   mapDispatchToProps
 )(Post)
-
-//TO DELETE
-const songs = [
-  {
-    id: 0,
-    author: 'Denzel Curry',
-    title: 'CLOUT COBAIN | CLOUT CO13A1N',
-    duration: '2:35',
-  },
-  {
-    id: 1,
-    author: 'Denzel Curry',
-    title: 'SWITCH IT UP | ZWITCH 1T UP',
-    duration: '2:55',
-  },
-  {
-    id: 2,
-    author: 'AWOLNATION',
-    title: 'Sail',
-    duration: '4:23',
-  },
-]
-const authors = [
-  {
-    id: 0,
-    name: 'Denzel Curry',
-  },
-  {
-    id: 1,
-    name: 'AWOLNATION',
-  },
-]
