@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../components/Logo'
 import List from '../components/List'
@@ -10,7 +11,9 @@ function Aside(props){
 
   return (
     <StyledAside fullScreen={fullScreen}>
-      <Logo/>
+      <Link to="/">
+        <Logo/>
+      </Link>
       <Player/>
       {!fullScreen && (
         <React.Fragment>
@@ -44,36 +47,3 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps
 )(Aside)
-
-// TO DELETE
-const playlists = [
-  {
-    id: 1,
-    name: "Ambient chill",
-  },
-  {
-    id: 2,
-    name: "Cloud rap",
-  },
-  {
-    id: 3,
-    name: "Fresh touch",
-  }
-]
-const suggestions = [
-  {
-    id: 1,
-    name: "MANTRA",
-    author: "Bring Me The Horizon",
-  },
-  {
-    id: 2,
-    name: "Kim Deal",
-    author: "Johnny Mafia",
-  },
-  {
-    id: 3,
-    name: "Weak When Ur Around",
-    author: "Blackbear",
-  }
-]

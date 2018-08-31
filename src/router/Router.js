@@ -17,7 +17,7 @@ const Router = () => {
         <Aside/>
         <Header/>
         <Route exact path="/" component={News} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id?" component={Profile} />
       </App>
     </BrowserRouter>
   )

@@ -9,23 +9,16 @@ export const toggleFullScreen = () => ({
 export const togglePlaying = () => ({
   type: types.togglePlaying,
 })
-export const setNowPlaying = (title, author, play, runTime) => ({
-  type: types.setNowPlaying,
-  title,
-  author,
-  play,
-  runTime
-})
 
-export const fetchPosts = (posts) => ({
-  type: types.fetchPosts,
-  posts
+export const setNowPlayingToAction = song => ({
+  type: types.setNowPlaying,
+  song
 })
-export const fetchAllPosts = () => {
-  return (dispatch) => {
-    return axios.get(`${apiUrl}/posts`)
+export const setNowPlaying = id => {
+  return dispatch => {
+    return axios.get(`${apiUrl}/songs/${id}`)
     .then(response => {
-      dispatch(fetchPosts(response.data))
+      dispatch(setNowPlayingToAction(response.data))
     })
     .catch(error => {
       throw(error)
@@ -33,15 +26,31 @@ export const fetchAllPosts = () => {
   }
 }
 
-export const fetchUser = (user) => ({
+export const fetchAllPostsToAction = posts => ({
+  type: types.fetchPosts,
+  posts
+})
+export const fetchAllPosts = () => {
+  return dispatch => {
+    return axios.get(`${apiUrl}/posts`)
+    .then(response => {
+      dispatch(fetchAllPostsToAction(response.data))
+    })
+    .catch(error => {
+      throw(error)
+    })
+  }
+}
+
+export const fetchLogUserToAction = user => ({
   type: types.fetchUser,
   user
 })
 export const fetchLogUser = () => {
-  return (dispatch) => {
+  return dispatch => {
     return axios.get(`${apiUrl}/user`)
     .then(response => {
-      dispatch(fetchUser(response.data))
+      dispatch(fetchLogUserToAction(response.data))
     })
     .catch(error => {
       throw(error)

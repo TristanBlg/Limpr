@@ -3,18 +3,16 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
-import {setNowPlaying} from '../actions'
-import {PlaySvg, AddSvg} from '../images/SvgSprite'
 import ProfilePic from './ProfilePic'
+import Song from './Song'
 
 function Post(props){
-  const {user, songs, setNowPlaying} = props
+  const {user, songs} = props
   const dateSend = moment(props.dateSend).fromNow()
-  const iconSize = 16
 
   return (
     <StyledPost>
-      <div className="post__head">
+      <div className="post-head">
         <Link to="/profile">
           <ProfilePic/>
         </Link>
@@ -25,28 +23,7 @@ function Post(props){
           <p className="date">{dateSend}</p>
         </div>
       </div>
-      {songs.map((song, key) => {
-        return (
-          <StyledSong key={key}>
-            <div className="song-left">
-              <button className="song__play" onClick={() => setNowPlaying(song.title, user.name)}>
-                <PlaySvg height={iconSize} width={iconSize}/>
-              </button>
-              <button className="song__add">
-                <AddSvg height={iconSize} width={iconSize}/>
-              </button>
-              <div className="song__title">
-                {song.title}
-              </div>
-            </div>
-            <div className="song-right">
-              <div className="song__time">
-                {song.duration}
-              </div>
-            </div>
-          </StyledSong>
-        )
-      })}
+      {songs.map((song, key) => <Song key={key} song={song} /> )}
     </StyledPost>
   )
 }
@@ -59,7 +36,7 @@ const StyledPost = styled.div `
   box-shadow: 0 0 10px rgba(0, 0, 0, .05);
 
   .post{
-    &__head{
+    &-head{
       display: flex;
       align-items: center;
 
@@ -114,15 +91,4 @@ const StyledSong = styled.div `
   }
 `
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setNowPlaying: (title, user) => {
-      dispatch(setNowPlaying(title, user))
-    }
-  }
-}
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Post)
+export default Post

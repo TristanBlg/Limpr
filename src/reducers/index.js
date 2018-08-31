@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux'
-import {fullScreen, nowPlaying} from './ReducerControl'
+import {fullScreen} from './ReducerControl'
 import {posts} from './ReducerPost'
 import {user} from './ReducerUsers'
+import {nowPlaying} from './ReducerSongs'
 
 const reducers = combineReducers({
   fullScreen,

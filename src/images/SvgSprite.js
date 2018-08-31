@@ -18,7 +18,7 @@ const AddSvg = (props) =>{
   return (
     <React.Fragment>
       <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 64 64">
-        <path fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" d="M32.1,1.9v60.4 M62.4,32.1H1.9" strokeLinejoin="round" strokeLinecap="round"></path>
+        <path fill="none" stroke="currentColor" strokeMiterlimit="10" strokeWidth="2" d="M32,3.9v55.7 M59.9,31.8H4.2" strokeLinejoin="round" strokeLinecap="round"></path>
       </svg>
     </React.Fragment>
   )
