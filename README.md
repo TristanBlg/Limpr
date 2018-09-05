@@ -9,12 +9,10 @@ That's a **first step into React-Redux environment** for me.
 ### Development
 You have to run 2 servers to develop :
 
-1. Node server
-<br>
+1. Node server<br>
 `npm run server`
 
-2. Dev server
-<br>
+2. Dev server<br>
 `npm start`
 
 ### Build
