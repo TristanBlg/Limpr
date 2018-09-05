@@ -18,6 +18,6 @@ You have to run 2 servers to develop :
 ### Build
 It's not recommended to use Limpr in production.
 
-> Don't forget to change the API URL used in `/src/actions/index.js`
+> Don't forget to change the API's URL used in `/src/actions/index.js`
 >
 > `npm run build`
