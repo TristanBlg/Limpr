@@ -1,53 +1,26 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
+import {updateTimeNowPlaying} from '../actions'
 import ControlBar from './ControlBar'
+import Timeline from './Timeline'
 
-class Player extends React.Component{
-  constructor(){
-    super();
+export function Player(props) {
+  const {fullScreen, nowPlaying, updateTimeNowPlaying} = props
 
-    this.handleTime = this.handleTime.bind(this)
-    this.audio = false
-    this.audioDuration = false
-  }
-
-  componentDidMount(){
-    this.audio = document.querySelector('#player')
-  }
-
-  componentDidUpdate(){
-    if(this.props.nowPlaying.play){
-      this.audio.load()
-      this.audio.play()
-    } else {
-      this.audio.pause()
-    }
-  }
-
-  handleTime(){
-    const timeline = document.querySelector('#timeline')
-    const size = this.audio.currentTime > 0 ? (100 * this.audio.currentTime  / 240) : 0
-    timeline.style.width = `${size}%`
-  }
-
-  render(){
-    const {fullScreen, nowPlaying} = this.props
-
-    return (
-      <StyledPlayer fullScreen={fullScreen}>
-        <p className="player-title">{nowPlaying.title}</p>
-        <p className="player-subtitle">{nowPlaying.user}</p>
-        <div className="player-picture" style={{backgroundImage: `url(${nowPlaying.thumbnail}`}}>
-          <audio id="player" onTimeUpdate={this.handleTime}>
-            <source src={nowPlaying.source} />
-          </audio>
-          <div id="timeline" className="player-timeline"></div>
-        </div>
-        <ControlBar />
-      </StyledPlayer>
-    )
-  }
+  return (
+    <StyledPlayer fullScreen={fullScreen}>
+      <p className="player-title">{nowPlaying.title}</p>
+      <p className="player-subtitle">{nowPlaying.user}</p>
+      <div className="player-picture" style={{backgroundImage: `url(${nowPlaying.thumbnail}`}}>
+        <audio id="player" onTimeUpdate={()=>{updateTimeNowPlaying(document.querySelector('#player').currentTime)}}>
+          <source src={nowPlaying.source} />
+        </audio>
+        <Timeline/>
+      </div>
+      <ControlBar/>
+    </StyledPlayer>
+  )
 }
 
 
@@ -85,15 +58,6 @@ const StyledPlayer = styled.div.attrs({
       position: ${(props) => !props.fullScreen && 'relative'};
       background: #828282 no-repeat center center / cover;
     }
-    &-timeline{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: #a29bfe;
-      width: 0%;
-      transition: width 0.2s;
-      height: ${(props) => props.fullScreen ? '12px' : '6px'};
-    }
   }
 `
 
@@ -103,7 +67,15 @@ const mapStateToProps = (state) => {
     nowPlaying: state.nowPlaying,
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateTimeNowPlaying: (currentTime) => {
+      dispatch(updateTimeNowPlaying(currentTime))
+    },
+  }
+}
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Player)
