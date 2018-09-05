@@ -4,7 +4,7 @@
       "id": 0,
       "user": "Juice WRLD",
       "title": "Lucid Dreams",
-      "duration": "4:00",
+      "duration": 240,
       "source": "/audio/juicewrld-luciddreams.mp3",
       "thumbnail": "/audio/juicewrld-luciddreams.jpg"
     },
@@ -12,7 +12,7 @@
       "id": 1,
       "user": "Vance Joy",
       "title": "Riptide",
-      "duration": "3:24",
+      "duration": 204,
       "source": "/audio/vancejoy-riptide.mp3",
       "thumbnail": "/audio/vancejoy-riptide.jpg"
     },
@@ -20,7 +20,7 @@
       "id": 2,
       "user": "AWOLNATION",
       "title": "Sail",
-      "duration": "4:32",
+      "duration": 272,
       "source": "/audio/awolnation-sail.mp3",
       "thumbnail": "/audio/awolnation-sail.jpg"
     }
@@ -37,7 +37,7 @@
         {
           "id": 0,
           "title": "Lucid Dreams",
-          "duration": "4:00",
+          "duration": 240,
           "source": "/audio/juicewrld-luciddreams.mp3",
           "thumbnail": "/audio/juicewrld-luciddreams.jpg"
         }
@@ -54,7 +54,7 @@
         {
           "id": 1,
           "title": "Riptide",
-          "duration": "3:24",
+          "duration": 204,
           "source": "/audio/vancejoy-riptide.mp3",
           "thumbnail": "/audio/vancejoy-riptide.jpg"
         }
@@ -71,7 +71,7 @@
         {
           "id": 2,
           "title": "Sail",
-          "duration": "4:32",
+          "duration": 272,
           "source": "/audio/awolnation-sail.mp3",
           "thumbnail": "/audio/awolnation-sail.jpg"
         }
