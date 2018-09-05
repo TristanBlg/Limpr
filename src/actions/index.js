@@ -6,6 +6,7 @@ const apiUrl = 'http://localhost:3000'
 export const toggleFullScreen = () => ({
   type: types.toggleFullScreen,
 })
+
 export const togglePlaying = () => ({
   type: types.togglePlaying,
 })
@@ -14,11 +15,13 @@ export const setNowPlayingToAction = song => ({
   type: types.setNowPlaying,
   song
 })
-export const setNowPlaying = id => {
+export const setNowPlaying = (id, audio = '#player') => {
   return dispatch => {
     return axios.get(`${apiUrl}/songs/${id}`)
     .then(response => {
       dispatch(setNowPlayingToAction(response.data))
+      document.querySelector(audio).load()
+      document.querySelector(audio).play()
     })
     .catch(error => {
       throw(error)
@@ -26,8 +29,13 @@ export const setNowPlaying = id => {
   }
 }
 
+export const updateTimeNowPlaying = currentTime => ({
+  type: types.updateTimeNowPlaying,
+  currentTime
+})
+
 export const fetchAllPostsToAction = posts => ({
-  type: types.fetchPosts,
+  type: types.fetchAllPosts,
   posts
 })
 export const fetchAllPosts = () => {

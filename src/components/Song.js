@@ -1,12 +1,15 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
+import moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
 import {setNowPlaying} from '../actions'
 import {PlaySvg, AddSvg} from '../images/SvgSprite'
 
-function Song(props){
+export function Song(props){
   const {song, setNowPlaying} = props
   const iconSize = 16
+  const duration = moment.duration(song.duration, 'seconds').format("h:m:ss");
 
   return (
     <StyledSong>
@@ -23,7 +26,7 @@ function Song(props){
       </section>
       <section>
         <div className="song-time">
-          {song.duration}
+          {duration}
         </div>
       </section>
     </StyledSong>
@@ -55,7 +58,7 @@ const StyledSong = styled.div.attrs({
       color: #4f4f4f;
     }
   }
-  > section {
+  > * {
     display: flex;
     align-items: center;
   }

@@ -19,7 +19,14 @@ export function ControlBar(props){
         <button>
           <PrevSvg height={iconSize} width={iconSize}/>
         </button>
-        {<button onClick={togglePlaying}>
+        {<button onClick={()=>{
+          {nowPlaying ? (
+            document.querySelector("#player").pause()
+          ) : (
+            document.querySelector("#player").play()
+          )}
+          togglePlaying()
+        }}>
           {nowPlaying ? (
             <PauseSvg height={iconSize} width={iconSize}/>
           ) : (

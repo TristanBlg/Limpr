@@ -6,18 +6,18 @@ import {Link} from 'react-router-dom'
 import ProfilePic from './ProfilePic'
 import Song from './Song'
 
-function Post(props){
+export function Post(props){
   const {user, songs} = props
   const dateSend = moment(props.dateSend).fromNow()
 
   return (
     <StyledPost>
       <div className="post-head">
-        <Link to="/profile">
+        <Link to="/">
           <ProfilePic/>
         </Link>
         <div>
-          <Link to="/profile">
+          <Link to="/">
             <p className="author">{user.name}</p>
           </Link>
           <p className="date">{dateSend}</p>
@@ -28,7 +28,9 @@ function Post(props){
   )
 }
 
-const StyledPost = styled.div `
+const StyledPost = styled.div.attrs({
+  className: 'post'
+}) `
   background: #fff;
   padding: 20px;
   margin-top: 20px;

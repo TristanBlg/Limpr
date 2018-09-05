@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function ProfilePic(){
+export function ProfilePic(){
   return (
     <React.Fragment>
       <StyledProfilePic>
