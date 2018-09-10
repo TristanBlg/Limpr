@@ -17,7 +17,7 @@ export function List(props){
               </Link>
               {el.author && (
                 <React.Fragment>
-                  {` - `}
+                  &nbsp;-&nbsp;
                   <Link to="/" className="list-link list-link--high">
                     {el.author}
                   </Link>

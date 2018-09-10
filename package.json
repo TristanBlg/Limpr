@@ -6,6 +6,7 @@
   "scripts": {
     "flow": "flow",
     "test": "jest",
+    "test:watch": "jest --watch",
     "server": "json-server --watch db.json",
     "start": "webpack-dev-server --mode=development --open",
     "build": "webpack --mode=production"
@@ -34,6 +35,8 @@
     "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
     "css-loader": "1.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "5.4.0",
     "eslint-loader": "2.1.0",
     "eslint-plugin-react": "7.11.1",
