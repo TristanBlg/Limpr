@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 type Props = {
   title: string,
-  items: Object
+  items: Object,
 }
 
 export function List(props: Props){

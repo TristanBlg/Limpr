@@ -2,7 +2,7 @@ import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 import moment from 'moment'
-import momentDurationFormatSetup from 'moment-duration-format'
+import 'moment-duration-format'
 import {setNowPlaying} from '../actions'
 import {PlaySvg, AddSvg} from '../images/SvgSprite'
 

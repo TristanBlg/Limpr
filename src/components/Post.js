@@ -9,7 +9,7 @@ import Song from './Song'
 type Props = {
   user: Object,
   songs: Object,
-  dateSend: string
+  dateSend: string,
 }
 
 export function Post(props: Props){
@@ -64,38 +64,6 @@ const StyledPost = styled.div.attrs({
     color: #828282;
     margin: 0;
     font-weight: 400;
-  }
-`
-const StyledSong = styled.div `
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  background: #f2f2f2;
-  border-radius: 40px;
-  padding: 10px 20px;
-  margin-top: 20px;
-
-  .song{
-    &-left{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    &-right{
-
-    }
-    &__play{
-      margin-right: 10px;
-    }
-    &__add{
-      margin-right: 20px;
-    }
-    &__title,
-    &__time{
-      font-size: 16px;
-      color: #4f4f4f;
-    }
   }
 `
 
