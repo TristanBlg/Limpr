@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -6,7 +7,12 @@ import Logo from '../components/Logo'
 import List from '../components/List'
 import Player from '../components/Player'
 
-function Aside(props){
+type Props = {
+  fullScreen: boolean,
+  user: Object
+}
+
+function Aside(props: Props){
   const {fullScreen, user} = props
 
   return (

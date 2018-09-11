@@ -1,8 +1,14 @@
+// @flow
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 
-export function Timeline(props){
+type Props = {
+  fullScreen: boolean,
+  nowPlaying: Object
+}
+
+export function Timeline(props: Props){
   const {fullScreen, nowPlaying} = props
   const size = nowPlaying.currentTime > 0 ? (100 * nowPlaying.currentTime  / nowPlaying.duration) : 0
 

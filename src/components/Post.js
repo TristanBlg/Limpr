@@ -1,12 +1,18 @@
+// @flow
 import * as React from 'react'
-import {connect} from 'react-redux'
 import styled from 'styled-components'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
 import ProfilePic from './ProfilePic'
 import Song from './Song'
 
-export function Post(props){
+type Props = {
+  user: Object,
+  songs: Object,
+  dateSend: string
+}
+
+export function Post(props: Props){
   const {user, songs} = props
   const dateSend = moment(props.dateSend).fromNow()
 

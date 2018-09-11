@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
@@ -5,7 +6,13 @@ import {updateTimeNowPlaying} from '../actions'
 import ControlBar from './ControlBar'
 import Timeline from './Timeline'
 
-export function Player(props) {
+type Props = {
+  fullScreen: boolean,
+  nowPlaying: Object,
+  updateTimeNowPlaying: Function
+}
+
+export function Player(props: Props) {
   const {fullScreen, nowPlaying, updateTimeNowPlaying} = props
 
   return (
@@ -13,7 +20,7 @@ export function Player(props) {
       <p className="player-title">{nowPlaying.title}</p>
       <p className="player-subtitle">{nowPlaying.user}</p>
       <div className="player-picture" style={{backgroundImage: `url(${nowPlaying.thumbnail}`}}>
-        <audio id="player" onTimeUpdate={()=>{updateTimeNowPlaying(document.querySelector('#player').currentTime)}}>
+        <audio id="player" onTimeUpdate={ev => { updateTimeNowPlaying(ev.currentTarget.currentTime)}}>
           <source src={nowPlaying.source} />
         </audio>
         <Timeline/>

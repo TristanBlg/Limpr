@@ -1,10 +1,18 @@
+// @flo
 import * as React from 'react'
 import {connect} from 'react-redux'
 import {toggleFullScreen, togglePlaying} from '../actions'
 import styled from 'styled-components'
 import {AddSvg, PlaySvg, PrevSvg, NextSvg, FullScreenSvg, NotFullScreenSvg, PauseSvg} from '../images/SvgSprite'
 
-export function ControlBar(props){
+type Props = {
+  fullScreen: string,
+  nowPlaying: string,
+  toggleFullScreen: string,
+  togglePlaying: Function
+}
+
+export function ControlBar(props: Props){
   const {fullScreen, nowPlaying, toggleFullScreen, togglePlaying} = props
   const iconSize = 24
 

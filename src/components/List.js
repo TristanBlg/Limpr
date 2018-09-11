@@ -1,8 +1,14 @@
+// @flow
 import * as React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-export function List(props){
+type Props = {
+  title: string,
+  items: Object
+}
+
+export function List(props: Props){
   const {title, items} = props
 
   return (
