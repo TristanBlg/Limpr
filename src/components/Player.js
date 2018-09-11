@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
@@ -6,13 +5,7 @@ import {updateTimeNowPlaying} from '../actions'
 import ControlBar from './ControlBar'
 import Timeline from './Timeline'
 
-type Props = {
-  fullScreen: boolean,
-  nowPlaying: Object,
-  updateTimeNowPlaying: Function
-}
-
-export function Player(props: Props) {
+export function Player(props) {
   const {fullScreen, nowPlaying, updateTimeNowPlaying} = props
 
   return (

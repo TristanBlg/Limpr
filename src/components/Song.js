@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
@@ -7,12 +6,7 @@ import momentDurationFormatSetup from 'moment-duration-format'
 import {setNowPlaying} from '../actions'
 import {PlaySvg, AddSvg} from '../images/SvgSprite'
 
-type Props = {
-  song: Object,
-  setNowPlaying: Function
-}
-
-export function Song(props: Props){
+export function Song(props){
   const {song, setNowPlaying} = props
   const iconSize = 16
   const duration = moment.duration(song.duration, 'seconds').format("h:m:ss");
