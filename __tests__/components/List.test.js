@@ -29,7 +29,7 @@ describe('List tests', () => {
     ]
     const wrapper = shallow(<List items={items} />)
 
-    expect(wrapper.find('.list-nav li')).toHaveLength(items.length)
+    expect(wrapper.find('.list-nav').children()).toHaveLength(items.length)
   })
 
   it('renders a list item', () => {
