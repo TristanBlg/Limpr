@@ -14,7 +14,7 @@ type Props = {
 
 export function Post(props: Props){
   const {user, songs} = props
-  const dateSend = moment(props.dateSend).fromNow()
+  const date = moment(props.dateSend).fromNow()
 
   return (
     <StyledPost>
@@ -26,7 +26,7 @@ export function Post(props: Props){
           <Link to="/">
             <p className="author">{user.name}</p>
           </Link>
-          <p className="date">{dateSend}</p>
+          <p className="date">{date}</p>
         </div>
       </div>
       {songs.map((song, key) => <Song key={key} song={song} /> )}
