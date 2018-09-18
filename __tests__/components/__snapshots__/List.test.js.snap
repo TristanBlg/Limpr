@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: <List/> render the component 1`] = `
+<div
+  className="List__StyledList-cySCHs list gKxmxy"
+>
+  <h2
+    className="list-title"
+  >
+    Title
+  </h2>
+  <ul
+    className="list-nav"
+  >
+    <li>
+      <a
+        className="list-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Item 1
+      </a>
+    </li>
+    <li>
+      <a
+        className="list-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Item 2
+      </a>
+    </li>
+    <li>
+      <a
+        className="list-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Item 3
+      </a>
+    </li>
+  </ul>
+</div>
+`;

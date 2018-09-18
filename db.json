@@ -4,7 +4,7 @@
       "id": 0,
       "user": "Juice WRLD",
       "title": "Lucid Dreams",
-      "duration": 240,
+      "duration": 230,
       "source": "/audio/juicewrld-luciddreams.mp3",
       "thumbnail": "/audio/juicewrld-luciddreams.jpg"
     },
@@ -20,7 +20,7 @@
       "id": 2,
       "user": "AWOLNATION",
       "title": "Sail",
-      "duration": 272,
+      "duration": 263,
       "source": "/audio/awolnation-sail.mp3",
       "thumbnail": "/audio/awolnation-sail.jpg"
     }
@@ -37,7 +37,7 @@
         {
           "id": 0,
           "title": "Lucid Dreams",
-          "duration": 240,
+          "duration": 210,
           "source": "/audio/juicewrld-luciddreams.mp3",
           "thumbnail": "/audio/juicewrld-luciddreams.jpg"
         }

@@ -2,7 +2,7 @@ import * as React from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
-export function List(props){
+function List(props){
   const {title, items} = props
 
   return (
