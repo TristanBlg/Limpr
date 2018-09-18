@@ -1,10 +1,10 @@
 const types = {
-  toggleFullScreen: 'TOGGLE_FULL_SCREEN',
-  togglePlaying: 'TOGGLE_PLAYING',
-  setNowPlaying: 'SET_NOW_PLAYING',
-  updateTimeNowPlaying: 'UPDATE_TIME_NOW_PLAYING',
-  fetchAllPosts: 'FETCH_POSTS',
-  fetchUser: 'FETCH_USER',
+  TOGGLE_FULL_SCREEN: 'TOGGLE_FULL_SCREEN',
+  TOGGLE_PLAYING: 'TOGGLE_PLAYING',
+  SET_NOW_PLAYING: 'SET_NOW_PLAYING',
+  SET_CURRENT_TIME: 'SET_CURRENT_TIME',
+  FETCH_POSTS: 'FETCH_POSTS',
+  FETCH_USER: 'FETCH_USER',
 }
 
 export default types

@@ -4,28 +4,22 @@ import axios from 'axios'
 const apiUrl = 'http://localhost:3000'
 
 export const toggleFullScreen = () => ({
-  type: types.toggleFullScreen,
+  type: types.TOGGLE_FULL_SCREEN,
 })
 
 export const togglePlaying = () => ({
-  type: types.togglePlaying,
+  type: types.TOGGLE_PLAYING,
 })
 
 export const setNowPlayingToAction = song => ({
-  type: types.setNowPlaying,
+  type: types.SET_NOW_PLAYING,
   song
 })
 export const setNowPlaying = (id, audio = '#player') => {
   return dispatch => {
     return axios.get(`${apiUrl}/songs/${id}`)
     .then(response => {
-      if (document.querySelector(audio)){
-        dispatch(setNowPlayingToAction(response.data))
-        document.querySelector(audio).load()
-        document.querySelector(audio).play()
-      } else {
-        throw 'mediaElement is undefined.'
-      }
+      dispatch(setNowPlayingToAction(response.data))
     })
     .catch(error => {
       console.error(error)
@@ -33,20 +27,20 @@ export const setNowPlaying = (id, audio = '#player') => {
   }
 }
 
-export const updateTimeNowPlaying = currentTime => ({
-  type: types.updateTimeNowPlaying,
+export const setCurrentTime = currentTime => ({
+  type: types.SET_CURRENT_TIME,
   currentTime
 })
 
-export const fetchAllPostsToAction = posts => ({
-  type: types.fetchAllPosts,
+export const fetchPostsToAction = posts => ({
+  type: types.FETCH_POSTS,
   posts
 })
-export const fetchAllPosts = () => {
+export const fetchPosts = () => {
   return dispatch => {
     return axios.get(`${apiUrl}/posts`)
     .then(response => {
-      dispatch(fetchAllPostsToAction(response.data))
+      dispatch(fetchPostsToAction(response.data))
     })
     .catch(error => {
       console.error(error)
@@ -55,7 +49,7 @@ export const fetchAllPosts = () => {
 }
 
 export const fetchLogUserToAction = user => ({
-  type: types.fetchUser,
+  type: types.FETCH_USER,
   user
 })
 export const fetchLogUser = () => {

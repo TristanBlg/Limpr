@@ -9,17 +9,17 @@ function List(props){
     <StyledList>
       <h2 className="list-title">{title}</h2>
       <ul className="list-nav">
-        {items && items.map((el, key) => {
+        {items && items.map(item => {
           return (
-            <li key={key}>
+            <li key={item.id}>
               <Link className="list-link" to="/">
-                {el.name}
+                {item.name}
               </Link>
-              {el.author && (
+              {item.author && (
                 <React.Fragment>
                   &nbsp;-&nbsp;
                   <Link to="/" className="list-link list-link--high">
-                    {el.author}
+                    {item.author}
                   </Link>
                 </React.Fragment>
               )}

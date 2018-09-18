@@ -8,9 +8,9 @@ export const News = (props) => {
   return (
     <section>
       <div className="container">
-        {posts && posts.map((post, key) => {
+        {posts && posts.map(post => {
           return (
-            <Post key={key} {...post}/>
+            <Post key={post.id} {...post}/>
           )
         })}
       </div>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
-import {updateTimeNowPlaying} from '../actions'
+import {setCurrentTime} from '../actions'
 import ControlBar from './ControlBar'
 import Timeline from './Timeline'
 
@@ -12,16 +12,25 @@ export class Player extends React.Component {
     this.player = React.createRef();
   }
 
+  componentDidUpdate(prevProps){
+    {(prevProps.nowPlaying.play != this.props.nowPlaying.play || prevProps.nowPlaying.source != this.props.nowPlaying.source) && (
+      this.props.nowPlaying.play ? (
+        this.player.current.play()
+      ) : (
+        this.player.current.pause()
+      )
+    )}
+  }
+
   render(){
-    const { fullScreen, nowPlaying, updateTimeNowPlaying } = this.props
+    const {fullScreen, nowPlaying, setCurrentTime} = this.props
 
     return (
       <StyledPlayer fullScreen={fullScreen}>
         <p className="player-title">{nowPlaying.title}</p>
         <p className="player-subtitle">{nowPlaying.user}</p>
         <div className="player-picture" style={{ backgroundImage: `url(${nowPlaying.thumbnail}` }}>
-          <audio id="player" ref={this.player} onTimeUpdate={ev => { updateTimeNowPlaying(ev.currentTarget.currentTime) }}>
-            <source src={nowPlaying.source} />
+          <audio id="player" src={nowPlaying.source} ref={this.player} onTimeUpdate={ev => { setCurrentTime(ev.currentTarget.currentTime) }}>
           </audio>
           <Timeline />
         </div>
@@ -77,8 +86,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateTimeNowPlaying: (currentTime) => {
-      dispatch(updateTimeNowPlaying(currentTime))
+    setCurrentTime: (currentTime) => {
+      dispatch(setCurrentTime(currentTime))
     },
   }
 }

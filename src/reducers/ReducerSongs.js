@@ -1,6 +1,6 @@
 import types from '../actions/ActionTypes'
 
-const nowPlayingState = {
+const nowPlayingInitialState = {
   id: '',
   title: 'Title',
   user: 'Author',
@@ -11,9 +11,9 @@ const nowPlayingState = {
   play: false
 }
 
-export const nowPlaying = (state = nowPlayingState, action) => {
+export const nowPlaying = (state = nowPlayingInitialState, action) => {
   switch(action.type){
-    case types.setNowPlaying:
+    case types.SET_NOW_PLAYING:
       return {
         id: action.song.id,
         title: action.song.title,
@@ -24,7 +24,7 @@ export const nowPlaying = (state = nowPlayingState, action) => {
         currentTime: action.song.currentTime,
         duration: action.song.duration
       }
-    case types.togglePlaying:
+    case types.TOGGLE_PLAYING:
       return {
         id: state.id,
         title: state.title,
@@ -35,7 +35,7 @@ export const nowPlaying = (state = nowPlayingState, action) => {
         currentTime: state.currentTime,
         duration: state.duration
       }
-    case types.updateTimeNowPlaying:
+    case types.SET_CURRENT_TIME:
       return {
         id: state.id,
         title: state.title,

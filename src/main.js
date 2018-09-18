@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom'
+import {render} from 'react-dom'
 import {createStore, applyMiddleware} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import ReduxThunk from 'redux-thunk'
@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import rootReducer from './reducers'
 import Router from './router/Router'
 import './main.css'
-import {fetchAllPosts, fetchLogUser} from './actions'
+import {fetchPosts, fetchLogUser} from './actions'
 
 const store = createStore(
   rootReducer,
@@ -16,10 +16,10 @@ const store = createStore(
   )
 )
 
-store.dispatch(fetchAllPosts());
+store.dispatch(fetchPosts());
 store.dispatch(fetchLogUser());
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <Router/>
   </Provider>,
