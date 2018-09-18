@@ -5,22 +5,30 @@ import {updateTimeNowPlaying} from '../actions'
 import ControlBar from './ControlBar'
 import Timeline from './Timeline'
 
-export function Player(props) {
-  const {fullScreen, nowPlaying, updateTimeNowPlaying} = props
+export class Player extends React.Component {
+  constructor(props){
+    super(props);
+    
+    this.player = React.createRef();
+  }
 
-  return (
-    <StyledPlayer fullScreen={fullScreen}>
-      <p className="player-title">{nowPlaying.title}</p>
-      <p className="player-subtitle">{nowPlaying.user}</p>
-      <div className="player-picture" style={{backgroundImage: `url(${nowPlaying.thumbnail}`}}>
-        <audio id="player" onTimeUpdate={()=>{updateTimeNowPlaying(document.querySelector('#player').currentTime)}}>
-          <source src={nowPlaying.source} />
-        </audio>
-        <Timeline/>
-      </div>
-      <ControlBar/>
-    </StyledPlayer>
-  )
+  render(){
+    const { fullScreen, nowPlaying, updateTimeNowPlaying } = this.props
+
+    return (
+      <StyledPlayer fullScreen={fullScreen}>
+        <p className="player-title">{nowPlaying.title}</p>
+        <p className="player-subtitle">{nowPlaying.user}</p>
+        <div className="player-picture" style={{ backgroundImage: `url(${nowPlaying.thumbnail}` }}>
+          <audio id="player" ref={this.player} onTimeUpdate={ev => { updateTimeNowPlaying(ev.currentTarget.currentTime) }}>
+            <source src={nowPlaying.source} />
+          </audio>
+          <Timeline />
+        </div>
+        <ControlBar />
+      </StyledPlayer>
+    )
+  }
 }
 
 

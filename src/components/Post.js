@@ -1,5 +1,4 @@
 import * as React from 'react'
-import {connect} from 'react-redux'
 import styled from 'styled-components'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
@@ -8,7 +7,7 @@ import Song from './Song'
 
 export function Post(props){
   const {user, songs} = props
-  const dateSend = moment(props.dateSend).fromNow()
+  const date = moment(props.dateSend).fromNow()
 
   return (
     <StyledPost>
@@ -20,7 +19,7 @@ export function Post(props){
           <Link to="/">
             <p className="author">{user.name}</p>
           </Link>
-          <p className="date">{dateSend}</p>
+          <p className="date">{date}</p>
         </div>
       </div>
       {songs.map((song, key) => <Song key={key} song={song} /> )}
@@ -58,38 +57,6 @@ const StyledPost = styled.div.attrs({
     color: #828282;
     margin: 0;
     font-weight: 400;
-  }
-`
-const StyledSong = styled.div `
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  background: #f2f2f2;
-  border-radius: 40px;
-  padding: 10px 20px;
-  margin-top: 20px;
-
-  .song{
-    &-left{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    &-right{
-
-    }
-    &__play{
-      margin-right: 10px;
-    }
-    &__add{
-      margin-right: 20px;
-    }
-    &__title,
-    &__time{
-      font-size: 16px;
-      color: #4f4f4f;
-    }
   }
 `
 

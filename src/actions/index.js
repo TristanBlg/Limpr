@@ -19,12 +19,16 @@ export const setNowPlaying = (id, audio = '#player') => {
   return dispatch => {
     return axios.get(`${apiUrl}/songs/${id}`)
     .then(response => {
-      dispatch(setNowPlayingToAction(response.data))
-      document.querySelector(audio).load()
-      document.querySelector(audio).play()
+      if (document.querySelector(audio)){
+        dispatch(setNowPlayingToAction(response.data))
+        document.querySelector(audio).load()
+        document.querySelector(audio).play()
+      } else {
+        throw 'mediaElement is undefined.'
+      }
     })
     .catch(error => {
-      throw(error)
+      console.error(error)
     })
   }
 }
@@ -45,7 +49,7 @@ export const fetchAllPosts = () => {
       dispatch(fetchAllPostsToAction(response.data))
     })
     .catch(error => {
-      throw(error)
+      console.error(error)
     })
   }
 }
@@ -61,7 +65,7 @@ export const fetchLogUser = () => {
       dispatch(fetchLogUserToAction(response.data))
     })
     .catch(error => {
-      throw(error)
+      console.error(error)
     })
   }
 }
