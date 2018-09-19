@@ -40,10 +40,23 @@ export class Player extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    fullScreen: state.fullScreen,
+    nowPlaying: state.nowPlaying,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentTime: (currentTime) => {
+      dispatch(setCurrentTime(currentTime))
+    },
+  }
+}
 
 const StyledPlayer = styled.div.attrs({
   className: 'player'
-}) `
+})`
   margin: 0 auto 40px;
   width: 768px;
   max-width: 100%;
@@ -77,20 +90,6 @@ const StyledPlayer = styled.div.attrs({
     }
   }
 `
-
-const mapStateToProps = (state) => {
-  return {
-    fullScreen: state.fullScreen,
-    nowPlaying: state.nowPlaying,
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setCurrentTime: (currentTime) => {
-      dispatch(setCurrentTime(currentTime))
-    },
-  }
-}
 
 export default connect(
   mapStateToProps,
