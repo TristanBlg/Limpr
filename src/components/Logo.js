@@ -2,11 +2,13 @@ import * as React from 'react'
 import styled from 'styled-components'
 import {LogoSvg} from '../images/SvgSprite'
 
-function Logo(){
+export function Logo(){
+  const iconSize = 80
+
   return (
     <React.Fragment>
       <StyledLogoSvg>
-        <LogoSvg width="80" />
+        <LogoSvg width={iconSize} />
       </StyledLogoSvg>
     </React.Fragment>
   )

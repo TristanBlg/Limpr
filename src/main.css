@@ -18,11 +18,16 @@ body{
 }
 a{
   text-decoration: none;
+  color: currentColor;
 }
 a,
 button{
-  outline: none;
   cursor: pointer;
+}
+a,
+button,
+input{
+  outline: none;
   border: none;
   background: none;
   padding: 0;

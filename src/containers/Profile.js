@@ -1,10 +1,12 @@
 import * as React from 'react'
 
-function Profile(){
+function Profile(props){
+  const {id} = props.match.params
+
   return (
     <section>
       <div className="container">
-        Profile !
+        {id ? `${id}'s` : 'Your'} profile
       </div>
     </section>
   )

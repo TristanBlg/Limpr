@@ -4,47 +4,62 @@ import axios from 'axios'
 const apiUrl = 'http://localhost:3000'
 
 export const toggleFullScreen = () => ({
-  type: types.toggleFullScreen,
-})
-export const togglePlaying = () => ({
-  type: types.togglePlaying,
-})
-export const setNowPlaying = (title, author, play, runTime) => ({
-  type: types.setNowPlaying,
-  title,
-  author,
-  play,
-  runTime
+  type: types.TOGGLE_FULL_SCREEN,
 })
 
-export const fetchPosts = (posts) => ({
-  type: types.fetchPosts,
-  posts
+export const togglePlaying = () => ({
+  type: types.TOGGLE_PLAYING,
 })
-export const fetchAllPosts = () => {
-  return (dispatch) => {
-    return axios.get(`${apiUrl}/posts`)
+
+export const setNowPlayingToAction = song => ({
+  type: types.SET_NOW_PLAYING,
+  song
+})
+export const setNowPlaying = (id, audio = '#player') => {
+  return dispatch => {
+    return axios.get(`${apiUrl}/songs/${id}`)
     .then(response => {
-      dispatch(fetchPosts(response.data))
+      dispatch(setNowPlayingToAction(response.data))
     })
     .catch(error => {
-      throw(error)
+      console.error(error)
     })
   }
 }
 
-export const fetchUser = (user) => ({
-  type: types.fetchUser,
+export const setCurrentTime = currentTime => ({
+  type: types.SET_CURRENT_TIME,
+  currentTime
+})
+
+export const fetchPostsToAction = posts => ({
+  type: types.FETCH_POSTS,
+  posts
+})
+export const fetchPosts = () => {
+  return dispatch => {
+    return axios.get(`${apiUrl}/posts`)
+    .then(response => {
+      dispatch(fetchPostsToAction(response.data))
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  }
+}
+
+export const fetchLogUserToAction = user => ({
+  type: types.FETCH_USER,
   user
 })
 export const fetchLogUser = () => {
-  return (dispatch) => {
+  return dispatch => {
     return axios.get(`${apiUrl}/user`)
     .then(response => {
-      dispatch(fetchUser(response.data))
+      dispatch(fetchLogUserToAction(response.data))
     })
     .catch(error => {
-      throw(error)
+      console.error(error)
     })
   }
 }

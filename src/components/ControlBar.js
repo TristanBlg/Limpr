@@ -10,31 +10,35 @@ export function ControlBar(props){
 
   return (
     <StyledControl>
-      <StyledBtn>
-        <AddSvg height={iconSize} width={iconSize}/>
-      </StyledBtn>
-      <div>
-        <StyledBtn>
+      <section>
+        <button>
+          <AddSvg height={iconSize} width={iconSize}/>
+        </button>
+      </section>
+      <section>
+        <button>
           <PrevSvg height={iconSize} width={iconSize}/>
-        </StyledBtn>
-        {<StyledBtn play onClick={togglePlaying}>
+        </button>
+        <button onClick={togglePlaying}>
           {nowPlaying ? (
             <PauseSvg height={iconSize} width={iconSize}/>
           ) : (
             <PlaySvg height={iconSize} width={iconSize}/>
           )}
-        </StyledBtn>}
-        <StyledBtn>
+        </button>
+        <button>
           <NextSvg height={iconSize} width={iconSize}/>
-        </StyledBtn>
-      </div>
-      <StyledBtn onClick={toggleFullScreen}>
-        {fullScreen ? (
-          <NotFullScreenSvg height={iconSize} width={iconSize}/>
-        ) : (
-          <FullScreenSvg height={iconSize} width={iconSize}/>
-        )}
-      </StyledBtn>
+        </button>
+      </section>
+      <section>
+        <button onClick={toggleFullScreen}>
+          {fullScreen ? (
+            <NotFullScreenSvg height={iconSize} width={iconSize}/>
+          ) : (
+            <FullScreenSvg height={iconSize} width={iconSize}/>
+          )}
+        </button>
+      </section>
     </StyledControl>
   )
 }
@@ -56,19 +60,25 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const StyledControl = styled.div `
+const StyledControl = styled.div.attrs({
+  className: 'control'
+}) `
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   margin-top: 10px;
-`
-const StyledBtn = styled.button `
-  border: ${(props) => props.play ? '2px solid #dcdcdc' : 'none'};
-  padding: ${(props) => props.play ? '10px' : '0'};
-  border-radius: ${(props) => props.play && '50%'};
-  margin: ${(props) => props.play && '0 20px'};
-  background: none;
+
+  > section {
+    display: flex;
+    align-items: center;
+  }
+  button{
+    &:not(:first-child){
+      margin-left: 20px;
+    }
+  }
 `
 
 export default connect(

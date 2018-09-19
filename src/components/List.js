@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 function List(props){
@@ -6,14 +7,22 @@ function List(props){
 
   return (
     <StyledList>
-      <h2 className="list__title">{title}</h2>
-      <ul className="list__nav">
-        {items && items.map((el, key) => {
+      <h2 className="list-title">{title}</h2>
+      <ul className="list-nav">
+        {items && items.map(item => {
           return (
-            <li key={key}>
-              <a className="list__link">
-                {el.name}<span className="list__link--high">{el.author && ` - ${el.author}`}</span>
-              </a>
+            <li key={item.id}>
+              <Link className="list-link" to="/">
+                {item.name}
+              </Link>
+              {item.author && (
+                <React.Fragment>
+                  &nbsp;-&nbsp;
+                  <Link to="/" className="list-link list-link--high">
+                    {item.author}
+                  </Link>
+                </React.Fragment>
+              )}
             </li>
           )
         })}
@@ -22,28 +31,29 @@ function List(props){
   )
 }
 
-const StyledList = styled.div `
+const StyledList = styled.div.attrs({
+  className: 'list'
+}) `
   margin-bottom: 40px;
   padding: 0 20px;
 
   .list{
-    &__title{
+    &-title{
       font-size: 1.6rem;
       font-weight: 700;
       color: #111;
       text-transform: uppercase;
       margin: 0;
     }
-    &__nav{
+    &-nav{
       list-style: none;
       padding: 0;
       margin: 0;
     }
-    &__link{
+    &-link{
       font-size: 1.6rem;
       font-weight: 400;
       color: #111;
-      text-decoration: none;
 
       &--high{
         color: #828282;
@@ -53,4 +63,3 @@ const StyledList = styled.div `
 `
 
 export default List
-

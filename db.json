@@ -2,21 +2,27 @@
   "songs": [
     {
       "id": 0,
-      "user": "Denzel Curry",
-      "title": "CLOUT COBAIN | CLOUT CO13A1N",
-      "duration": "2:35"
+      "user": "Juice WRLD",
+      "title": "Lucid Dreams",
+      "duration": 230,
+      "source": "/audio/juicewrld-luciddreams.mp3",
+      "thumbnail": "/audio/juicewrld-luciddreams.jpg"
     },
     {
       "id": 1,
-      "user": "Denzel Curry",
-      "title": "SWITCH IT UP | ZWITCH 1T UP",
-      "duration": "2:55"
+      "user": "Vance Joy",
+      "title": "Riptide",
+      "duration": 204,
+      "source": "/audio/vancejoy-riptide.mp3",
+      "thumbnail": "/audio/vancejoy-riptide.jpg"
     },
     {
       "id": 2,
       "user": "AWOLNATION",
       "title": "Sail",
-      "duration": "4:23"
+      "duration": 263,
+      "source": "/audio/awolnation-sail.mp3",
+      "thumbnail": "/audio/awolnation-sail.jpg"
     }
   ],
   "posts": [
@@ -25,13 +31,15 @@
       "dateSend": "2018-08-21 22:55",
       "user": {
         "id": 0,
-        "name": "Denzel Curry"
+        "name": "Juice WRLD"
       },
       "songs": [
         {
           "id": 0,
-          "title": "CLOUT COBAIN | CLOUT CO13A1N",
-          "duration": "2:35"
+          "title": "Lucid Dreams",
+          "duration": 210,
+          "source": "/audio/juicewrld-luciddreams.mp3",
+          "thumbnail": "/audio/juicewrld-luciddreams.jpg"
         }
       ]
     },
@@ -39,14 +47,16 @@
       "id": 1,
       "dateSend": "2018-08-21 20:21",
       "user": {
-        "id": 0,
-        "name": "Denzel Curry"
+        "id": 3,
+        "name": "Vance Joy"
       },
       "songs": [
         {
           "id": 1,
-          "title": "SWITCH IT UP | ZWITCH 1T UP",
-          "duration": "2:55"
+          "title": "Riptide",
+          "duration": 204,
+          "source": "/audio/vancejoy-riptide.mp3",
+          "thumbnail": "/audio/vancejoy-riptide.jpg"
         }
       ]
     },
@@ -61,7 +71,9 @@
         {
           "id": 2,
           "title": "Sail",
-          "duration": "4:23"
+          "duration": 272,
+          "source": "/audio/awolnation-sail.mp3",
+          "thumbnail": "/audio/awolnation-sail.jpg"
         }
       ]
     }
@@ -69,15 +81,15 @@
   "users": [
     {
       "id": 0,
-      "name": "Denzel Curry"
+      "name": "Juice WRLD"
     },
     {
       "id": 1,
       "name": "AWOLNATION"
     },
     {
-      "id": 2,
-      "name": "Tristan"
+      "id": 3,
+      "name": "Vance Joy"
     }
   ],
   "user": {
